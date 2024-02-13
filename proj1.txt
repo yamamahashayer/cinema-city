@@ -1,0 +1,152 @@
+CREATE USER yamama WITH PASSWORD '444777';
+GRANT CONNECT ON DATABASE postgres TO yamama;
+CREATE SCHEMA Cinema AUTHORIZATION yamama;
+GRANT USAGE ON SCHEMA Cinema TO yamama;
+
+-----------------------------------------
+
+CREATE TABLE  cinema. "EMPLOYEE1"
+(
+"E_name" character varying(15) NOT NULL,
+"E_ID" character(9) NOT NULL,
+"Bdate" date,
+"Address" character varying(30),
+"Salary" numeric(10, 2),
+"Gender" cinema."genderType",
+"phone_number" numeric ,
+"Working Days" numeric ,
+"working hours " integer,
+"A_gmail" text,	
+PRIMARY KEY ("E_ID")
+);
+------
+
+------------------------------------------------
+CREATE TABLE cinema."Hall"
+(
+"H_ID" character(9) NOT NULL,
+"hall_reservation_times" integer NOT NULL,
+"number_of_seats" integer NOT NULL,
+PRIMARY KEY ("H_ID")
+);
+-------------------------------------------------
+CREATE TABLE cinema."snack"
+(
+"S_ID" character(9) NOT NULL,
+"the_price" integer NOT NULL,
+"food_drink_name" character varying(15) NOT NULL,	
+"Quantity_Available" integer NOT NULL,
+"Quantity_to_order" integer NOT NULL,
+PRIMARY KEY ("S_ID")
+);
+
+------------------------------------------------
+
+REATE TABLE cinema."custamer"
+(
+"C_gamil" character(9) NOT NULL,
+"name" character varying(15) NOT NULL,
+"c_pass" text,	
+PRIMARY KEY ("C_gamil")
+);
+
+--------------------------------------------------
+
+CREATE TABLE  cinema. "movie"               
+(
+"M_name" character varying(15) NOT NULL,
+"M_ID" character(9) NOT NULL,
+"date" date,
+"description" character varying(30) NOT NULL,
+"type" character varying(15) NOT NULL,
+"show_time" time,
+"start_time" time,
+"end_time" time,
+PRIMARY KEY ("M_ID")
+);
+-------------------------------------------------------------
+CREATE TABLE  cinema. "tiket"
+(
+"T_name_of_movie" character varying(15) NOT NULL,
+"T_ID" character(9) NOT NULL,
+"date" date,
+"hall_num" numeric,
+"price" numeric,
+"seat_num" numeric,
+"remainig_num" numeric,
+"time" time,
+"M_ID"character(9) NOT NULL,
+"E_ID"character(9) NOT NULL,
+"C_ID"character(9) NOT NULL,
+PRIMARY KEY ("T_ID")
+
+);
+----
+
+--------------------------------------------------------------
+CREATE TABLE cinema."Bill"
+(
+"B_ID" character(9) NOT NULL,
+"total_price" numeric,
+"C_ID"character(9) NOT NULL,
+"E_ID"character(9) NOT NULL,
+PRIMARY KEY ("B_ID")
+	
+);
+----
+
+---------------------------------------------------------------
+CREATE TABLE cinema."Emplyee1&hall"
+(
+"E_ID2" character(9) NOT NULL,
+"H_ID2" character(9) NOT NULL,
+PRIMARY KEY ("E_ID2", "H_ID2")
+);
+----
+
+-----------------------------------------------------------
+CREATE TABLE cinema."hall&movie"
+(
+"H_ID2" character(9) NOT NULL,
+"M_ID2" character(9) NOT NULL,
+PRIMARY KEY ("H_ID2", "M_ID2")
+);
+
+-----
+
+-------------------------------------------------------
+CREATE TABLE cinema."tiket&cusamer"
+(
+"T_ID2" character(9) NOT NULL,
+"C_ID2" character(9) NOT NULL,
+PRIMARY KEY ("TID2", "C_ID2")
+);
+-----------------------------------------------------------
+CREATE TABLE cinema."bill&snack"
+(
+"B_ID2" character(9) NOT NULL,
+"S_ID2" character(9) NOT NULL,
+PRIMARY KEY ("B_ID2", "S_ID2")
+);
+----
+ALTER TABLE IF EXISTS cinema."bill&snack"
+
+--------------------------------------------------------
+CREATE TABLE cinema."Admain"
+(
+"A_gmail" text,
+"A_pass" text,
+PRIMARY KEY ("A_gmail")
+);
+------
+
+--------------------------------
+CREATE TABLE cinema."bill"
+(
+"b_id" SERIAL PRIMARY KEY,
+"total_price" numeric,
+"c_id"character(9) NOT NULL,
+"e_id"character(9) NOT NULL,
+PRIMARY KEY ("b_id")
+	
+);

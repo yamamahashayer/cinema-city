@@ -1,0 +1,120 @@
+ALTER TABLE IF EXISTS cinema."EMPLOYEE1"
+ADD  FOREIGN KEY ("E_ID")
+REFERENCES cinema."EMPLOYEE1" ("E_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+-----
+ALTER TABLE IF EXISTS cinema."tiket"
+ADD CONSTRAINT "tiket_EID_FK" FOREIGN KEY ("E_ID")
+REFERENCES cinema."EMPLOYEE1" ("E_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+----
+ALTER TABLE IF EXISTS cinema."tiket"
+ADD CONSTRAINT "tiket_MID_FK"FOREIGN KEY ("M_ID")
+REFERENCES cinema."movie" ("M_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+----
+ALTER TABLE IF EXISTS cinema."tiket"
+ADD CONSTRAINT "tiket_CID_FK" FOREIGN KEY ("C_ID")
+REFERENCES cinema."custamer" ("C_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."Bill"
+ADD CONSTRAINT "Bill_EID_FK"FOREIGN KEY ("E_ID")
+REFERENCES cinema."EMPLOYEE1" ("E_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+----
+ALTER TABLE IF EXISTS cinema."Bill"
+ADD CONSTRAINT "Bill_CID_FK"FOREIGN KEY ("C_gimal")
+REFERENCES cinema."custamer" ("C_gmail")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+----
+ALTER TABLE IF EXISTS cinema."emplyee1_hall"
+ADD CONSTRAINT "employee_refrerance" FOREIGN KEY ("e_id2")
+REFERENCES cinema."employee1" ("e_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."emplyee1_hall"
+ADD CONSTRAINT "hall_refrerance" FOREIGN KEY ("h_id2")
+REFERENCES cinema."hall" ("h_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."hall&movie"
+ADD CONSTRAINT "_hall_refrerance" FOREIGN KEY ("H_ID2")
+REFERENCES cinema."Hall" ("H_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."hall&movie"
+ADD CONSTRAINT "_movie_refrerance" FOREIGN KEY ("M_ID2")
+REFERENCES cinema."movie" ("M_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+----
+ALTER TABLE IF EXISTS cinema."bill&snack"
+ADD CONSTRAINT "BILL_refrerance" FOREIGN KEY ("B_ID2")
+REFERENCES cinema."Bill" ("B_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."bill&snack"
+ADD CONSTRAINT "sncke_refrerance" FOREIGN KEY ("S_ID2")
+REFERENCES cinema."snack" ("S_ID")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+------
+ALTER TABLE IF EXISTS cinema."EMPLOYEE1"
+ADD  FOREIGN KEY ("A_gmail")
+REFERENCES cinema."Admain" ("A_gmail")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-----
+ALTER TABLE IF EXISTS cinema."Admain"
+ADD  FOREIGN KEY ("A_gmail")
+REFERENCES cinema."Admain" ("A_gmail")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-------------------------
+ALTER TABLE IF EXISTS cinema."ticket_cusamer"
+ADD CONSTRAINT "cusamer_refrerance" FOREIGN KEY ("c_gmail2")
+REFERENCES cinema."custamer" ("c_gmail")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+---------------
+ALTER TABLE IF EXISTS cinema."ticket_cusamer"
+ADD CONSTRAINT "ticket_refrerance" FOREIGN KEY ("t_id2")
+REFERENCES cinema."tiket" ("t_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+-------------------
+ALTER TABLE IF EXISTS cinema."bill_ticket"
+ADD CONSTRAINT "bill_refrerance" FOREIGN KEY ("b_id2")
+REFERENCES cinema."bill" ("b_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+---------------
+ALTER TABLE IF EXISTS cinema."bill_ticket"
+ADD CONSTRAINT "tiket" FOREIGN KEY ("t_id2")
+REFERENCES cinema."tiket" ("t_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;---------
+------------------------------------------------
+ALTER TABLE IF EXISTS cinema."bill_snack"
+ADD CONSTRAINT "bill_refrerance" FOREIGN KEY ("b_id2")
+REFERENCES cinema."bill1" ("b_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+---------------
+ALTER TABLE IF EXISTS cinema."bill_snack"
+ADD CONSTRAINT "snack_refrerance" FOREIGN KEY ("s_id2")
+REFERENCES cinema."snack" ("s_id")
+ON DELETE CASCADE
+ON UPDATE CASCADE;
